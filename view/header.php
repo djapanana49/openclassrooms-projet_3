@@ -11,7 +11,7 @@
     <title>Blog d'un &eacute;crivain</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="../public/css/clean-blog.min.css" rel="stylesheet">
+    <link href="public/css/clean-blog.min.css" rel="stylesheet">
 
   </head>
 
@@ -38,7 +38,7 @@
               <a class="nav-link" href="index.php">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="controller/post.php">Les articles</a>
+              <a class="nav-link" href="index.php?action=listPosts">Les articles</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>

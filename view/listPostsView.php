@@ -8,7 +8,7 @@ require("header.php");?>
 	while ($data = $posts->fetch())
         {?>
           <div class="post-preview">
-            <a href="controller/post.php?id=<?= $data['id'] ?>">
+            <a href="index.php?action=post&id=<?= $data['id'] ?>">
               <h2 class="post-title">
                 <?php echo htmlspecialchars($data['title']); ?>
               </h2>
