@@ -15,6 +15,9 @@ require("header.php");?>
             </a>
             <p class="post-meta">Publié le
               <?php echo $data['creation_date_fr']; ?></p>
+            <?php $html='<p>'.substr($data['content'],0,200).'... </p>';
+                $html.='<p><a href="index.php?action=post&id='.$data['id'].'">lire la suite</a></p>';
+                echo $html;?>
           </div>
           <hr>
 		  <?php
