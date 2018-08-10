@@ -1,5 +1,3 @@
-<?php
-require("header.php");?>
     <!-- Main Content -->
     <div class="container">
       <div class="row">
@@ -27,12 +25,12 @@ require("header.php");?>
           
           <!-- Pager -->
           <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+           <!-- <a class="btn btn-primary float-right" href="#">Anciens articles &rarr;</a>-->
           </div>
         </div>
       </div>
     </div>
 
     <hr>
-<?include("footer.php");
+
    
