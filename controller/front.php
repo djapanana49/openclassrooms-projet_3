@@ -40,13 +40,12 @@ function addComment($postId, $author, $comment)
 function alertComment()
 {
     $commentManager = new CommentsManager();
-    $comments = $commentManager->getComments($_GET['id']);
-    $change = $commentManager->alertcomment($comments);
+    $change = $commentManager->alertcomment($_GET['comment_id']);
     if ($change === false) {
         throw new Exception('Impossible de signaler le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: index.php?action=post&id=' . $_GET['id']);
     }
    
 }

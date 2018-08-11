@@ -30,9 +30,6 @@
         <label for="comment">Commentaire</label><br />
         <textarea id="comment" name="comment" rows=10 cols=50></textarea>
     </div>
-    <div>
-        <input type="checkbox" name="signaler" value="signaler"/> Signaler le commentaire
-    </div>
     <div><br>
         <input class="btn btn-primary" type="submit" />
         
@@ -44,19 +41,16 @@
         <h2>Commentaires</h2>
 
         <?php
-        while ($comment = $comments->fetch())
+        while ($comment = $comments->fetch(PDO::FETCH_ASSOC))
         {
-            if($comment['validate']==1){
-                
-                ?>
+        
+        ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-                
-           <?php 
-            
-            }
-    }?>
-        
+    
+    <a href="index.php?action=alertComment&comment_id=<?=$comment['comment_id']?>&id=<?= $post['id']?>"><button class="btn btn-success" type="submit">Signaler le commentaire</button></a>
+        <?php
+        }?>
 </div></p>
 
         
