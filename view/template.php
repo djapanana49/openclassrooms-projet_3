@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Jean Forteroche">
 
     <title>Blog d'un &eacute;crivain</title>
 
@@ -27,7 +27,7 @@
    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="index.php">Un livre, un jour...</a>
+        <a class="navbar-brand" href="index.php">Blog de Jean Forteroche</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -52,7 +52,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Blog d'un &eacute;crivain</h1>
+              <h1>Billet simple pour l'Alaska</h1>
               <span class="subheading">Un r&eacute;cit quotidien</span>
             </div>
           </div>
@@ -92,7 +92,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Un livre, un jour... 2018</p>
+            <p class="copyright text-muted">Copyright &copy; Jean Forteroche 2018</p>
           </div>
         </div>
       </div>

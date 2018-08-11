@@ -24,6 +24,9 @@ require('controller/front.php');
 					if (!empty($_POST['author']) && !empty($_POST['comment'])) {
 						addComment($_GET['id'], $_POST['author'], $_POST['comment']);
 					}
+					elseif (!empty($_POST['author']) && !empty($_POST['comment']) && isset($_POST['signaled'])) {
+						signalComment($_GET['id'], $_POST['author'], $_POST['comment']);
+					}
 					else {
 						throw new Exception('Erreur : tous les champs ne sont pas remplis !');
 					}
@@ -32,7 +35,9 @@ require('controller/front.php');
 					throw new Exception('Erreur : aucun identifiant de billet envoyé');
 				}
 			}
+		
 		}
+		
 		else {
 			listPosts();
 		}
@@ -47,3 +52,6 @@ require('controller/front.php');
 }
 
 
+
+
+	

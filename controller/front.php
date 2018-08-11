@@ -36,3 +36,17 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+function alertComment()
+{
+    $commentManager = new CommentsManager();
+    $comments = $commentManager->getComments($_GET['id']);
+    $change = $commentManager->alertcomment($comments);
+    if ($change === false) {
+        throw new Exception('Impossible de signaler le commentaire !');
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $postId);
+    }
+   
+}

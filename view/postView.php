@@ -4,11 +4,12 @@
 		<div class="container">
         <div class="col-lg-8 col-md-10 mx-auto">
 		<h1 class="post-title">
-                <?php echo htmlspecialchars($post['title']); ?>
+            <br>
+                <?= htmlspecialchars($post['title']); ?>
               </h1>
 			<div class="row">
 				
-					<?= nl2br(htmlspecialchars($post['content'])) ?>
+					<?= nl2br(htmlspecialchars($post['content'])); ?>
             </p>
 				
 			</div>
@@ -29,6 +30,9 @@
         <label for="comment">Commentaire</label><br />
         <textarea id="comment" name="comment" rows=10 cols=50></textarea>
     </div>
+    <div>
+        <input type="checkbox" name="signaler" value="signaler"/> Signaler le commentaire
+    </div>
     <div><br>
         <input class="btn btn-primary" type="submit" />
         
@@ -42,12 +46,17 @@
         <?php
         while ($comment = $comments->fetch())
         {
-        ?>
+            if($comment['validate']==1){
+                
+                ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-            <button type="button" class="btn btn-secondary">Signaler le commentaire</button>
-        <?php
-        }?>
+                
+           <?php 
+            
+            }
+    }?>
+        
 </div></p>
 
         
