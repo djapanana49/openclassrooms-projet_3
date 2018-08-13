@@ -24,9 +24,6 @@ require('controller/front.php');
 					if (!empty($_POST['author']) && !empty($_POST['comment'])) {
 						addComment($_GET['id'], $_POST['author'], $_POST['comment']);
 					}
-					elseif (!empty($_POST['author']) && !empty($_POST['comment']) && isset($_POST['signaled'])) {
-						signalComment($_GET['id'], $_POST['author'], $_POST['comment']);
-					}
 					else {
 						throw new Exception('Erreur : tous les champs ne sont pas remplis !');
 					}
@@ -36,6 +33,15 @@ require('controller/front.php');
 				}
 			}
 		
+	
+		elseif($_GET['action']=='alertComment'){
+				if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
+					echo'modification en cours';
+				alertComment();
+		
+				}
+			else throw new Exception('ça ne marche pas');
+			}
 		}
 		
 		else {

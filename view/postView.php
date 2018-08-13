@@ -47,9 +47,14 @@
         ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <?php 
+            if($comment['signaled']==0){?>
     
-    <a href="index.php?action=alertComment&comment_id=<?=$comment['comment_id']?>&id=<?= $post['id']?>"><button class="btn btn-success" type="submit">Signaler le commentaire</button></a>
-        <?php
+    <a href="index.php?action=alertComment&comment_id=<?=$comment['comment_id']?>&id=<?= $post['id']?>"><button class="btn btn-warning" type="submit">Signaler le commentaire</button></a>
+       <?php }else{?>
+                <button class="btn btn-danger" type="submit">commentaire signalé</button>
+           <?php }
+        
         }?>
 </div></p>
 
