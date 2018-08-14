@@ -8,20 +8,28 @@ require_once('model/Connection.php');
 			function getPosts()
 			{
 
-		   $db = $this->dbConnect();
+             $db = $this->dbConnect();
 
-			// On récupère les 5 derniers billets
-			$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
-			return $req;
+              // On récupère les 5 derniers billets
+              $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+              return $req;
 		   }
 
 		   function getPost($postId)
 			{
-			$db = $this->dbConnect();
-			$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts WHERE id = ?');
-			$req->execute(array($postId));
-			$post = $req->fetch();
+              $db = $this->dbConnect();
+              $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts WHERE id = ?');
+              $req->execute(array($postId));
+              $post = $req->fetch();
 
-			return $post;
+              return $post;
 			}
+      
+            function addPosts($title,$postauthor,$content){
+              $db = $this->dbconnect();
+              $req = $db->prepare('INSERT INTO posts (title,post_author,content,creation_date) VALUES(?, ?, ?, NOW())');
+              $affectedLines = $req->execute(array($title,$postauthor, $content));
+		      return $affectedLines;
+              
+            }
 	}
