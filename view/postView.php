@@ -9,7 +9,7 @@
               </h1>
 			<div class="row">
 				
-					<?= nl2br(htmlspecialchars($post['content'])); ?>
+					<?= htmlspecialchars_decode($post['content']); ?>
             </p>
 				
 			</div>

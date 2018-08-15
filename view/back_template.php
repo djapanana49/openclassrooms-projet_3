@@ -22,6 +22,13 @@
 
     <!-- Custom styles for this template-->
     <link href="public/back/css/sb-admin.css" rel="stylesheet">
+    <!-- Tiny MCE-->
+    <script src="public/back/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea',
+                         branding:false,
+                         plugins:'link image advlist lists charmap print preview',
+                         menubar: "insert",
+                        });</script>
 
   </head>
 
@@ -111,7 +118,7 @@
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">Other Pages:</h6>
             <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item" href="addPosts.php">Ajout d'articles</a>
+            <a class="dropdown-item" href="admin.php?action=addPostsView">Ajout d'articles</a>
           </div>
         </li>
        <!-- <li class="nav-item">
@@ -125,7 +132,7 @@
             <span>Signalements</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="view/addPosts.php">
+          <a class="nav-link" href="admin.php?action=addPostsView">
             <i class="fas fa-fw fa-folder"></i>
             <span>Ajout d'articles</span></a>
         </li>
@@ -268,23 +275,23 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../public/back/vendor/jquery/jquery.min.js"></script>
-    <script src="../public/back/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="public/back/vendor/jquery/jquery.min.js"></script>
+    <script src="public/back/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../public/back/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="public/back/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Page level plugin JavaScript-->
-    <script src="../public/back/vendor/chart.js/Chart.min.js"></script>
-    <script src="../public/back/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="public/back/vendor/chart.js/Chart.min.js"></script>
+    <script src="public/back/vendor/datatables/jquery.dataTables.js"></script>
     <script src="../public/back/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../public/back/js/sb-admin.min.js"></script>
+    <script src="public/back/js/sb-admin.min.js"></script>
 
     <!-- Demo scripts for this page-->
-    <script src="../public/back/js/demo/datatables-demo.js"></script>
-    <script src="../public/back/js/demo/chart-area-demo.js"></script>
+    <script src="public/back/js/demo/datatables-demo.js"></script>
+    <script src="public/back/js/demo/chart-area-demo.js"></script>
 
   </body>
 

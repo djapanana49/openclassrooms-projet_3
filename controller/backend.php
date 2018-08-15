@@ -50,8 +50,13 @@ require_once('model/PostsManager.php');
         throw new Exception('Impossible d\'ajouter l\'article !');
         }
         else {
-        require('view/addPosts.php');
+        require('view/addPostsView.php');
         }
       }
+
+    function addPostsView(){
+
+        require('view/addPostsView.php');
+    }
 
     

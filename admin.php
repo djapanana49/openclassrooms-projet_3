@@ -21,6 +21,7 @@ require('controller/backend.php');
             }
           else throw new Exception('ça ne marche pas');
             }
+          
           elseif ($_GET['action'] == 'addPosts') {
 				
 					if (!empty($_POST['title']) && !empty($_POST['post_author'])&& !empty ($_POST['content'])) {
@@ -30,8 +31,12 @@ require('controller/backend.php');
 						throw new Exception('Erreur : tous les champs ne sont pas remplis !');
 					}
 			}
+          elseif ($_GET['action'] == 'addPostsView') {
+				
+					addPostsView();
           
           }
+        }
       else{
         
         showSignalComments();
