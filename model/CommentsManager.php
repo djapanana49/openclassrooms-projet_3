@@ -14,7 +14,7 @@ require_once('model/Connection.php');
 				$comments->execute(array($postId));
 				return $comments;
 			}
-			// Nouvelle fonction qui nous permet d'éviter de répéter du code
+			// Nouvelle fonction qui nous permet d'ï¿½viter de rï¿½pï¿½ter du code
 
 
 			public function postComment($postId, $author, $comment)
@@ -43,23 +43,23 @@ require_once('model/Connection.php');
   
           }
           
-           public function deleteComment(){
+           public function deleteComment($commentId){
             
-                $commentId=$_GET['comment_id'];
-				$db=$this->dbConnect();
-				$suppr=$db->prepare('DELETE FROM comments WHERE comment_id=?');
-				$affectedLines = $suppr->execute(array($commentId));
-				return $affectedLines;
+               
+                $db=$this->dbConnect();
+                $suppr=$db->prepare('DELETE FROM comments WHERE comment_id=?');
+                $affectedLines = $suppr->execute(array($commentId));
+                return $affectedLines;
   
           }
           
-           public function validateComment(){
+           public function validateComment($commentId){
             
-                $commentId=$_GET['comment_id'];
+        
                 $db = $this->dbConnect();
                 $valid=$db->prepare('UPDATE comments set signaled=0 where comment_id=?');
-		        $affectedLines = $valid->execute(array($commentId));
-		        return $affectedLines;
+                $affectedLines = $valid->execute(array($commentId));
+                return $affectedLines;
   
           }
 				

@@ -6,55 +6,51 @@ define("PUB",ROOT.DS."public");//url dossier public
 define("BASE_URL",dirname($_SERVER["SCRIPT_NAME"]));
 require('controller/front.php');
 	ob_start(); 
-	try{
-		if (isset($_GET['action'])) {
-			if ($_GET['action'] == 'listPosts') {
-				listPosts();
-			}
-			elseif ($_GET['action'] == 'post') {
-				if (isset($_GET['id']) && $_GET['id'] > 0) {
-					post();
-				}
-				else {
-					throw new Exception('Erreur : aucun identifiant de billet envoyé');
-				}
-			}
-		elseif ($_GET['action'] == 'addComment') {
-				if (isset($_GET['id']) && $_GET['id'] > 0) {
-					if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-						addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-					}
-					else {
-						throw new Exception('Erreur : tous les champs ne sont pas remplis !');
-					}
-				}
-				else {
-					throw new Exception('Erreur : aucun identifiant de billet envoyé');
-				}
-			}
-		
-	
-		elseif($_GET['action']=='alertComment'){
-				if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
-					echo'modification en cours';
-				alertComment();
-		
-				}
-			else throw new Exception('ça ne marche pas');
-			}
-		}
-		
-		else {
-			listPosts();
-		}
-		$content = ob_get_clean(); 
-		require('view/template.php'); 
-	}
-	
-	catch(Exception $e) { // S'il y a eu une erreur, alors...
-
+	try {
+    if (isset($_GET['action'])) {
+        if ($_GET['action'] == 'listPosts') {
+            listPosts();
+        } elseif ($_GET['action'] == 'post') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                post();
+            } else {
+                throw new Exception('Erreur : aucun identifiant de billet envoyï¿½');
+            }
+        } elseif ($_GET['action'] == 'getUser') {
+            if (!empty($_POST['identifiant']) && !empty($_POST['mdp'])) {
+                getUser($_GET['identifiant'], $_GET['mdp']);
+            }
+        } elseif ($_GET['action'] == 'addComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                } else {
+                    throw new Exception('Erreur : tous les champs ne sont pas remplis !');
+                }
+            } else {
+                throw new Exception('Erreur : aucun identifiant de billet envoyï¿½');
+            }
+        } elseif ($_GET['action'] == 'alertComment') {
+            if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
+                echo'modification en cours';
+                alertComment();
+            } else
+                throw new Exception('ï¿½a ne marche pas');
+        }
+        elseif ($_GET['action'] == 'connectView') {
+				
+					connectView();
+          
+          }
+    }
+            
+    else {
+        listPosts();
+    }
+    $content = ob_get_clean();
+    require('view/template.php');
+} catch (Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
-
 }
 
 

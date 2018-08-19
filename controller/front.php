@@ -49,3 +49,8 @@ function alertComment()
     }
    
 }
+
+function connectView(){
+    
+    require('view/connectView.php');
+}

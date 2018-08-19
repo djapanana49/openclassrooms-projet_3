@@ -10,7 +10,7 @@ require('controller/backend.php');
         
         elseif ($_GET['action']=='deleteComment'){
 		    if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
-				deleteComment();
+				deleteComment($_GET['comment_id']);
             }
           else throw new Exception('ça ne marche pas');
             }

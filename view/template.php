@@ -38,7 +38,7 @@
               <a class="nav-link" href="index.php">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin.php">Admin</a>
+              <a class="nav-link" href="index.php?action=connectView">Admin</a>
             </li>
           </ul>
         </div>

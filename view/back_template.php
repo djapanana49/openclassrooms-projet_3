@@ -1,3 +1,4 @@
+<?php //var_dump($_GET);?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -102,7 +103,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <span>Tableau de bord</span>
           </a>
         </li>
         <li class="nav-item dropdown">
@@ -145,9 +146,9 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Dashboard</a>
+              <a href="#">Tableau de bord</a>
             </li>
-            <li class="breadcrumb-item active">Overview</li>
+            <li class="breadcrumb-item active">Vue d'ensemble</li>
           </ol>
 
           <!-- Icon Cards-->
@@ -284,7 +285,7 @@
     <!-- Page level plugin JavaScript-->
     <script src="public/back/vendor/chart.js/Chart.min.js"></script>
     <script src="public/back/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="../public/back/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="public/back/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="public/back/js/sb-admin.min.js"></script>

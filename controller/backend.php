@@ -1,7 +1,8 @@
 <?php
 
-require_once('model/CommentsManager.php');
-require_once('model/PostsManager.php');
+require_once 'model/CommentsManager.php';
+require_once 'model/PostsManager.php';
+require_once 'model/UsersManager.php';
 
 
     function showSignalComments(){
@@ -17,11 +18,11 @@ require_once('model/PostsManager.php');
     }
 
 
-    function deleteComment(){
+    function deleteComment($commentid){
 
         $commentManager = new CommentsManager();
-        $suppr = $commentManager->deleteComment($_GET['comment_id']);
-        if ($signals === false) {
+        $suppr = $commentManager->deleteComment($commentid);
+        if ($suppr === false) {
             throw new Exception('Aucun commentaire supprimé');
         }
      else {
@@ -29,10 +30,10 @@ require_once('model/PostsManager.php');
         }
     }
 
-    function validateComment(){
+    function validateComment($commentId){
 
         $commentManager = new CommentsManager();
-        $valid = $commentManager->validateComment($_GET['comment_id']);
+        $valid = $commentManager->validateComment($commentId);
         if ($valid === false) {
         throw new Exception('Impossible de valider le commentaire !');
         }
