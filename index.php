@@ -1,12 +1,13 @@
 <?php
-define("PROJET3",dirname(__FILE__));//dossier du projet-C:\Users\SYLVIE\Documents\Openclassroom\Projet_3
-define("ROOT",dirname(PROJET3));//racine du projet-C:\Users\SYLVIE\Documents\Openclassroom
-define("DS",DIRECTORY_SEPARATOR);//separateur
-define("PUB",ROOT.DS."public");//url dossier public
-define("BASE_URL",dirname($_SERVER["SCRIPT_NAME"]));
+
+define("PROJET3", dirname(__FILE__)); //dossier du projet-C:\Users\SYLVIE\Documents\Openclassroom\Projet_3
+define("ROOT", dirname(PROJET3)); //racine du projet-C:\Users\SYLVIE\Documents\Openclassroom
+define("DS", DIRECTORY_SEPARATOR); //separateur
+define("PUB", ROOT . DS . "public"); //url dossier public
+define("BASE_URL", dirname($_SERVER["SCRIPT_NAME"]));
 require('controller/front.php');
-	ob_start(); 
-	try {
+ob_start();
+try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
@@ -38,13 +39,10 @@ require('controller/front.php');
                 throw new Exception('�a ne marche pas');
         }
         elseif ($_GET['action'] == 'connectView') {
-				
-					connectView();
-          
-          }
-    }
-            
-    else {
+
+            connectView();
+        }
+    } else {
         listPosts();
     }
     $content = ob_get_clean();

@@ -137,6 +137,11 @@
             <i class="fas fa-fw fa-folder"></i>
             <span>Ajout d'articles</span></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin.php?action=editPosts">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>modification article</span></a>
+        </li>
       </ul>
 
       <div id="content-wrapper">

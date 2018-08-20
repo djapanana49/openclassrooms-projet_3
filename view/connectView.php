@@ -11,7 +11,7 @@
 <div class="col-lg-8 col-md-10 mx-auto">
     <h2>Se Connecter</h2>
 
-    <form action="admin.php?action=getUser" method="post">
+    <form action="admin.php?action=getUser" method="">
         <div>
             <label for="identifiant">Identifiant</label><br />
             <input type="text" id="id" name="id" size=50>
