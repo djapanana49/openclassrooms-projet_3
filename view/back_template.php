@@ -129,18 +129,18 @@
         </li>-->
         <li class="nav-item">
           <a class="nav-link" href="admin.php?action=showSignalComments">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Signalements</span></a>
+            <i class="fas fa-comments"></i>
+            <span>Commentaires signalés</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="admin.php?action=addPostsView">
-            <i class="fas fa-fw fa-folder"></i>
+            <i class="fas fa-file-alt"></i>
             <span>Ajout d'articles</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="admin.php?action=editPosts">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>modification article</span></a>
+            <i class="fas fa-edit"></i>
+            <span>Gestion des articles</span></a>
         </li>
       </ul>
 

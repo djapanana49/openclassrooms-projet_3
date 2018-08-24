@@ -7,12 +7,13 @@ require_once 'model/UsersManager.php';
 function showSignalComments() {
 
     $commentManager = new CommentsManager();
-    $signals = $commentManager->showSignalComments();
-    if ($signals === false) {
+    $signals = $commentManager->showSignalComment();
+    if ($signals == false) {
         throw new Exception('Aucun commentaire signalé');
     }
-
+    
     require('view/back_commentView.php');
+    
 }
 
 function deleteComment($commentid) {
@@ -22,7 +23,7 @@ function deleteComment($commentid) {
     if ($suppr === false) {
         throw new Exception('Aucun commentaire supprimé');
     } else {
-        header('Location: admin.php');
+        require('view/backendView.php');
     }
 }
 
@@ -61,8 +62,6 @@ function changePosts($postId, $title, $content) {
 
     if ($affectedLines === false) {
         throw new Exception('Impossible de modifier l\'article !');
-    } else {
-        require('admin.php');
     }
 }
 
@@ -80,4 +79,37 @@ function changePostsView($postsId) {
     $postManager = new PostsManager(); // Création d'un objet
     $posts = $postManager->getPost($postsId);
     require('view/back_postView.php');
+}
+
+function getUser($userId, $pwd){
+    
+    $userManager = new UsersManager();
+    $user =$userManager->getUser($userId, $pwd);
+    if($user==true){
+   /* var_dump($user);
+    die;*/
+    require('view/backendView.php');}
+    
+    else{
+        
+        header('Location:index.php?action=connectView');
+    }
+}
+
+function deletePosts($postid) {
+
+    $postManager = new PostsManager();
+    $suppr = $postManager->deletePosts($postid);
+    if ($suppr === false) {
+        throw new Exception('Aucun commentaire supprimé');
+    } else {
+        require('view/backendView.php');
+    }
+}
+
+function post()
+{
+    $postManager = new PostsManager();
+    $post = $postManager->getPost($_GET['id']);
+    require('view/postView2.php');
 }

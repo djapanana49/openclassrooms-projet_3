@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -11,7 +12,7 @@
 <div class="col-lg-8 col-md-10 mx-auto">
     <h2>Se Connecter</h2>
 
-    <form action="admin.php?action=getUser" method="">
+    <form action="admin.php?action=getUser" method="post">
         <div>
             <label for="identifiant">Identifiant</label><br />
             <input type="text" id="id" name="id" size=50>
@@ -24,5 +25,7 @@
             <input class="btn btn-primary" type="submit" value="valider"/>
 
         </div>
+       
     </form>
+    
 </div>

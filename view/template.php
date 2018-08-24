@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.php">Accueil</a>
+              <a class="nav-link" href="index.php?action=listPosts">Accueil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.php?action=connectView">Admin</a>

@@ -8,24 +8,37 @@
 
 require_once('model/Connection.php');
 
-class UsersManager{
-    
+class UsersManager extends Connection {
+
     public function createUser($userId, $pwd) {
-        
+
         $db = $this->dbConnect();
         $users = $db->prepare('INSERT INTO users(identifiant,mdp) VALUES(?, ?)');
         $affectedLines = $users->execute(array($userId, $pwd));
         return $affectedLines;
-        
+    }
+
+    public function getUser($userId, $pwd) {
+
+        $db = $this->dbConnect();
+        $users = $db->prepare('SELECT identifiant, mdp FROM users WHERE identifiant = ? AND mdp = ? ');
+        $users->execute(array($userId, $pwd));
+        $userRow = $users->fetch(PDO::FETCH_ASSOC);
+        if ($users->rowCount() > 0) {
+  
+            $_SESSION['user_session'] = $userRow['identifiant'];
+            return true;
+        } else {
+            return false;
+        }
     }
     
-    public function getUser($userId, $pwd){
+    public function deconnexion() {
         
-        $db = $this->dbConnect();
-        $users = $db->prepare('SELECT identifiant, mdp FROM users WHERE conn_id = ? & mdp = ? ');
-        $users->execute(array($userId, $pwd));
-        /* @var $users type */
-        return $users;
-        
+        $_SESSION = array();
+        session_destroy();
+        header('index.php?action=listpost');
     }
+        
+
 }

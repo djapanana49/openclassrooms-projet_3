@@ -12,7 +12,8 @@
             <textarea id="content" name="content" rows=10 cols=50><?php echo $posts['content']?></textarea>
         </div>
         <div><br>
-            <input class="btn btn-primary" type="submit" value="publier"/>
+            <input class="btn btn-primary" type="submit" value="modifier"/> 
+            <a href="admin.php?action=editPosts" class="btn btn-info" role="button"><i class="fas fa-arrow-alt-circle-left"> Retour</i></a>
 
         </div>
     </form>

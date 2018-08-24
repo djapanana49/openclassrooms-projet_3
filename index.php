@@ -9,41 +9,44 @@ require('controller/front.php');
 ob_start();
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
-            listPosts();
-        } elseif ($_GET['action'] == 'post') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+        switch($_GET['action']){
+            
+            case "listPosts": echo "liste des articles"; listPosts();break;
+            case 'post':
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
             } else {
-                throw new Exception('Erreur : aucun identifiant de billet envoy�');
+                throw new Exception('Aucun identifiant de billet envoy�');
             }
-        } elseif ($_GET['action'] == 'getUser') {
-            if (!empty($_POST['identifiant']) && !empty($_POST['mdp'])) {
-                getUser($_GET['identifiant'], $_GET['mdp']);
-            }
-        } elseif ($_GET['action'] == 'addComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+            break;
+            case 'addComment':
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
-                    throw new Exception('Erreur : tous les champs ne sont pas remplis !');
+                    throw new Exception('Tous les champs ne sont pas remplis !');
                 }
             } else {
-                throw new Exception('Erreur : aucun identifiant de billet envoy�');
+                throw new Exception('Aucun identifiant de billet envoy�');
             }
-        } elseif ($_GET['action'] == 'alertComment') {
-            if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
-                echo'modification en cours';
+            break;
+            case 'alertComment':
+                if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
                 alertComment();
-            } else
+            } else{
                 throw new Exception('�a ne marche pas');
-        }
-        elseif ($_GET['action'] == 'connectView') {
-
-            connectView();
-        }
-    } else {
+            }
+            break;
+            
+            case 'connectView':connectView();break;
+            
+            default:  echo "par défaut"; listPosts(); break;
+        } 
+ 
+    }else{
+        
         listPosts();
+        
     }
     $content = ob_get_clean();
     require('view/template.php');

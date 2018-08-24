@@ -11,7 +11,9 @@
                 <?php echo htmlspecialchars($data['title']); ?>
               </h2>
             </a>
-              <a href="admin.php?action=changePostsView&AMP;id=<?= $data['id'] ?>">Modifier</a>
+              <a href="admin.php?action=post&AMP;id=<?= $data['id'] ?>"><button class="btn btn-dark" type="submit">Afficher</button></a>
+              <a href="admin.php?action=changePostsView&AMP;id=<?= $data['id'] ?>"><button class="btn btn-primary" type="submit">Modifier</button></a>
+              <a href="admin.php?action=deletePosts&AMP;id=<?= $data['id'] ?>"><button class="btn btn-danger" type="submit">Supprimer</button></a>
           </div>
           <hr>
 		  <?php
