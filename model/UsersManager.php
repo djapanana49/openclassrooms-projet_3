@@ -8,11 +8,11 @@
 
 require_once('model/Connection.php');
 
-class UsersManager extends Connection {
+class UsersManager {
 
     public function createUser($userId, $pwd) {
 
-        $db = $this->dbConnect();
+        $db = Connection::getInstance();
         $users = $db->prepare('INSERT INTO users(identifiant,mdp) VALUES(?, ?)');
         $affectedLines = $users->execute(array($userId, $pwd));
         return $affectedLines;
@@ -20,7 +20,7 @@ class UsersManager extends Connection {
 
     public function getUser($userId, $pwd) {
 
-        $db = $this->dbConnect();
+        $db = Connection::getInstance();
         $users = $db->prepare('SELECT identifiant, mdp FROM users WHERE identifiant = ? AND mdp = ? ');
         $users->execute(array($userId, $pwd));
         $userRow = $users->fetch(PDO::FETCH_ASSOC);

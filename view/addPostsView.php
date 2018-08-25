@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-?>
 <div class="col-lg-8 col-md-10 mx-auto">
     <h2>Ajouter un article</h2>
 
@@ -12,7 +8,7 @@ session_start();
         </div>
         <div>
             <label for="author">Auteur</label><br />
-            <input type="text" id="post_author" name="post_author" size="50" value="<?=$_SESSION['Auth']['id']?>">
+            <input type="text" id="post_author" name="post_author" size="50" value="<?=$_SESSION['user_session']?>">
         </div>
         <div>
             <label for="comment">Article</label><br />

@@ -1,12 +1,12 @@
 <?php
-session_start();
-extract($_POST);
-if(isset ($_POST['id'])){
-$id = $_POST['id'];
+if (isset($_SESSION['user_session'])) {
+    ?>
+    <h2>Bonjour <?= $_SESSION['user_session'] ?>  , bienvenue sur votre page d'administration</h2>
+    <br/>
+    <br/>
+    <a href="#" class="btn btn-dark" role="button">se déconnecter</a>
+    <?php
 }
-?>
 
-<h2>Bonjour <?= $id ?>  , bienvenue sur votre page d'administration</h2>
-<br/>
-<br/>
-<a href="#" class="btn btn-dark" role="button">se déconnecter</a>
+
+    

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 define("PROJET3", dirname(__FILE__)); //dossier du projet-C:\Users\SYLVIE\Documents\Openclassroom\Projet_3
 define("ROOT", dirname(PROJET3)); //racine du projet-C:\Users\SYLVIE\Documents\Openclassroom
 define("DS", DIRECTORY_SEPARATOR); //separateur

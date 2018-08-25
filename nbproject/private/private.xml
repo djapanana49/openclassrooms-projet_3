@@ -5,10 +5,14 @@
         <group>
             <file>file:/C:/wamp64/www/openclassrooms/view/back_postView.php</file>
             <file>file:/C:/wamp64/www/openclassrooms/controller/backend.php</file>
-            <file>file:/C:/wamp64/www/openclassrooms/index.php</file>
+            <file>file:/C:/wamp64/www/openclassrooms/view/postView2.php</file>
             <file>file:/C:/wamp64/www/openclassrooms/model/PostsManager.php</file>
+            <file>file:/C:/wamp64/www/openclassrooms/model/Connection.php</file>
             <file>file:/C:/wamp64/www/openclassrooms/admin.php</file>
             <file>file:/C:/wamp64/www/openclassrooms/view/editPostsView.php</file>
+            <file>file:/C:/wamp64/www/openclassrooms/view/connectView.php</file>
+            <file>file:/C:/wamp64/www/openclassrooms/model/UsersManager.php</file>
+            <file>file:/C:/wamp64/www/openclassrooms/view/backendView.php</file>
             <file>file:/C:/wamp64/www/openclassrooms/view/back_template.php</file>
         </group>
     </open-files>

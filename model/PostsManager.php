@@ -2,11 +2,11 @@
 
 require_once('model/Connection.php');
 
-class PostsManager extends Connection {
+class PostsManager {
 
     function getPosts() {
 
-        $db = $this->dbConnect();
+        $db = Connection::getInstance();
 
         // On récupère les 5 derniers billets
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts ORDER BY creation_date ASC LIMIT 0, 10');
@@ -14,7 +14,7 @@ class PostsManager extends Connection {
     }
 
     function getPost($postId) {
-        $db = $this->dbConnect();
+        $db = Connection::getInstance();
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
@@ -23,7 +23,7 @@ class PostsManager extends Connection {
     }
 
     function addPosts($title, $postauthor, $content) {
-        $db = $this->dbconnect();
+        $db = Connection::getInstance();
         $req = $db->prepare('INSERT INTO posts (title,post_author,content,creation_date) VALUES(?, ?, ?, NOW())');
         $affectedLines = $req->execute(array($title, $postauthor, $content));
         return $affectedLines;
@@ -31,7 +31,7 @@ class PostsManager extends Connection {
 
     function deletePosts($postId) {
 
-        $db = $this->dbConnect();
+        $db = Connection::getInstance();
         $suppr = $db->prepare('DELETE FROM posts WHERE id=?');
         $affectedLines = $suppr->execute(array($postId));
         return $affectedLines;
@@ -39,7 +39,7 @@ class PostsManager extends Connection {
 
     function editPosts($postId) {
 
-        $db = $this->dbConnect();
+        $db = Connection::getInstance();
         $edit = $db->prepare('SELECT * FROM posts WHERE id=?');
         $affectedLines = $edit->execute(array($postId));
         return $affectedLines;
@@ -47,7 +47,7 @@ class PostsManager extends Connection {
 
     function changePosts($postId, $title, $content) {
 
-        $db = $this->dbConnect();
+        $db = Connection::getInstance();
         $edit = $db->prepare('UPDATE posts set title=?, content= ? WHERE id=?');
         $affectedLines = $edit->execute(array($title,$content,$postId));
         return $affectedLines;
