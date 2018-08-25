@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('autoload.php');
 require('controller/backend.php');
 ob_start();
 try {

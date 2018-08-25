@@ -1,7 +1,5 @@
 <?php
 
-require_once('model/Connection.php');
-
 class CommentsManager {
 
     public function getComments($postId) {
