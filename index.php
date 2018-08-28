@@ -36,9 +36,11 @@ try {
             }
             break;
             
-            case 'connectView':connectView();break;
+            case 'connectView':
+                
+                connectView();break;
             
-            default:  echo "par défaut"; listPosts(); break;
+            default: listPosts(); break;
         } 
  
     }else{
@@ -46,6 +48,7 @@ try {
         listPosts();
         
     }
+    
     $content = ob_get_clean();
     require('view/template.php');
 } catch (Exception $e) { // S'il y a eu une erreur, alors...

@@ -7,6 +7,7 @@ try {
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case 'showSignalComments': showSignalComments();
+                $sous_titre="Commentaires signalés";
                 break;
             
             case 'deleteComment':
@@ -34,9 +35,15 @@ try {
                 break;
 
             case 'addPostsView':addPostsView();
+                $sous_titre="Ajout d'articles";
+                break;
+            
+            case 'backendView':backendView();
+                $sous_titre="Vue d'ensemble";
                 break;
             
             case 'editPosts': editPosts();
+                $sous_titre="Gestion des articles";
                 break;
             
             case 'changePosts':
@@ -56,6 +63,7 @@ try {
 
                     changePostsView($_GET['id']);
                 }
+                $sous_titre="Gestion des articles / Modification";
                 break;
 
             case 'getUser':
@@ -65,6 +73,7 @@ try {
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
+                $sous_titre="Vue d'ensemble";
                 break;
             case 'deletePosts':
                 
@@ -78,6 +87,11 @@ try {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
                 }
+                $sous_titre="Gestion des articles / Affichage";
+                break;
+                
+            case 'deconnexion':
+                deconnexion();
                 break;
                 
 

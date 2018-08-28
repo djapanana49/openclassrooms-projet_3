@@ -35,7 +35,7 @@ class UsersManager {
         
         $_SESSION = array();
         session_destroy();
-        header('index.php?action=listpost');
+        header('Location:index.php?action=listpost');
     }
         
 

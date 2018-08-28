@@ -51,6 +51,11 @@ function addPostsView() {
     require('view/addPostsView.php');
 }
 
+function backendView() {
+
+    require('view/backendView.php');
+}
+
 function changePosts($postId, $title, $content) {
 
     $postManager = new PostsManager();
@@ -108,4 +113,10 @@ function post()
     $postManager = new PostsManager();
     $post = $postManager->getPost($_GET['id']);
     require('view/postView2.php');
+}
+
+function deconnexion(){
+    
+    $userManager= new UsersManager();
+    $user = $userManager ->deconnexion();
 }
