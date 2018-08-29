@@ -54,3 +54,8 @@ function connectView(){
     
     require('view/connectView.php');
 }
+
+function page_404(){
+    
+    require('view/page_404.php');
+}

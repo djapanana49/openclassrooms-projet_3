@@ -39,6 +39,10 @@ try {
             case 'connectView':
                 
                 connectView();break;
+            case 'page_404':
+               
+                 page_404();break;
+                
             
             default: listPosts(); break;
         } 
