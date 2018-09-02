@@ -13,22 +13,27 @@ try {
             case 'deleteComment':
                 if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
                     deleteComment($_GET['comment_id']);
+                    showSignalComments();
+                    $sous_titre="Commentaires signalés";
                 } else {
-                    throw new Exception('ça ne marche pas');
+                    throw new Exception('Pas de suppression possible');
                 }
                 break;
                 
             case 'validateComment':
                 if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
-                    validateComment();
+                    validateComment($_GET['comment_id']);
+                    showSignalComments();
+                    $sous_titre="Commentaires signalés";
                 } else {
-                    throw new Exception('ça ne marche pas');
+                    throw new Exception('Pas de validation possible');
                 }
                 break;
                 
             case 'addPosts':
                 if (!empty($_POST['title']) && !empty($_POST['post_author']) && !empty($_POST['content'])) {
                     addPosts($_POST['title'], $_POST['post_author'], $_POST['content']);
+                    $sous_titre="Ajout articles";
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
@@ -95,12 +100,13 @@ try {
                 break;
                 
 
-            default:  echo'Page par défaut';
+            default:  backendView();
                 break;
         }
+        
     } else {
 
-        header('Location: admin.php');
+        backendView();
     }
 
     $content = ob_get_clean();

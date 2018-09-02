@@ -50,4 +50,13 @@ class PostsManager {
         $affectedLines = $edit->execute(array($title,$content,$postId));
         return $affectedLines;
     }
+    
+    function countPosts(){
+        
+        $db = Connection::getInstance();
+        $count=$db->query('SELECT COUNT(*) FROM posts');
+        $count2=$count->fetch();
+        return $count2;
+        
+    }
 }

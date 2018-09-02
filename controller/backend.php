@@ -18,9 +18,7 @@ function deleteComment($commentid) {
     $suppr = $commentManager->deleteComment($commentid);
     if ($suppr === false) {
         throw new Exception('Aucun commentaire supprimé');
-    } else {
-        require('view/backendView.php');
-    }
+    } 
 }
 
 function validateComment($commentId) {
@@ -29,9 +27,7 @@ function validateComment($commentId) {
     $valid = $commentManager->validateComment($commentId);
     if ($valid === false) {
         throw new Exception('Impossible de valider le commentaire !');
-    } else {
-        header('Location: admin.php');
-    }
+    } 
 }
 
 function addPosts($title, $postauthor, $content) {
@@ -119,4 +115,11 @@ function deconnexion(){
     
     $userManager= new UsersManager();
     $user = $userManager ->deconnexion();
+}
+
+function countPosts() {
+    
+    $postManager = new PostsManager(); // Création d'un objet
+    $count = $postManager->countPosts(); // Appel d'une fonction de cet objet
+
 }
