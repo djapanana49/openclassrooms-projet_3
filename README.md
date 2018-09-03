@@ -4,7 +4,7 @@ Projet 3 Openclassrooms
 # Blog Jean Fentroche - Projet 3
 - Langage
 PHP avec la méthode MVC
--- URL
+- URL
 http://www.projets-opc-nana.com/
 - Auteur
 Djapa Nana
