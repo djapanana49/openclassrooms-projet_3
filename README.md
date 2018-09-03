@@ -25,3 +25,9 @@ Chaque billet permet l'ajout de commentaires, qui pourront être modérés dans 
 Les lecteurs peuvent "signaler" les commentaires pour que ceux-ci remontent plus facilement dans l'interface d'administration pour être modérés.
 
 L'interface d'administration est protégée par mot de passe. La rédaction de billets se fait dans une interface WYSIWYG basée sur TinyMCE, pour que Jean n'ait pas besoin de rédiger son histoire en HTML.
+### Installation
+- créer une base de données 
+- importer le fichier sql présent dans le depository
+- télécharger avec un logiciel FTP les dossiers controller/model/public et view
+- télécharger les fichiers index.php, admin.php et le fichier .htaccess
+
