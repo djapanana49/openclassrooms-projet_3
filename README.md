@@ -6,12 +6,12 @@ Projet 3 Openclassrooms
 PHP avec la méthode MVC
 -- URL
 http://www.projets-opc-nana.com/
--- Auteur
+- Auteur
 Djapa Nana
 
 # Le projet
 Une application de blog simple en PHP et avec une base de données MySQL.
---descriptif
+- descriptif
 Cette application a une interface frontend (lecture des billets) et une interface backend (administration des billets pour l'écriture). On y retrouve tous les éléments d'un CRUD :
 
     Create : création de billets
