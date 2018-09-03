@@ -2,14 +2,14 @@
 Projet 3 Openclassrooms
 
 # Blog Jean Fentroche - Projet 3
--- Langage
+- Langage
 PHP avec la méthode MVC
 -- URL
 http://www.projets-opc-nana.com/
 -- Auteur
 Djapa Nana
 
-#Le projet
+# Le projet
 Une application de blog simple en PHP et avec une base de données MySQL.
 --descriptif
 Cette application a une interface frontend (lecture des billets) et une interface backend (administration des billets pour l'écriture). On y retrouve tous les éléments d'un CRUD :
