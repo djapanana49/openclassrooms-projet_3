@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- page d'ajout d'articles avec tinymce-->
 <html>
 <head>
   <script src="../public/back/js/tinymce/tinymce.min.js"></script>
@@ -6,7 +7,7 @@
 </head>
 <body>
    <div class="col-lg-8 col-md-10 mx-auto">
-	<h2>Ajouter un articcle</h2>
+	<h2>Ajouter un article</h2>
 
 <form action="../admin.php?action=addPosts" method="post">
     <div>

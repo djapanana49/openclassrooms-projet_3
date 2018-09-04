@@ -1,3 +1,4 @@
+<!-- page d'ajout d'articles-->
 <div class="col-lg-8 col-md-10 mx-auto">
     <h2>Ajouter un article</h2>
 

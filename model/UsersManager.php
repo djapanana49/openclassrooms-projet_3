@@ -8,19 +8,20 @@
 
 class UsersManager {
 
-    public function createUser($userId, $pwd) {
+   /* public function createUser($userId, $pwd) {
 
         $db = Connection::getInstance();
         $users = $db->prepare('INSERT INTO users(identifiant,mdp) VALUES(?, ?)');
         $affectedLines = $users->execute(array($userId, $pwd));
         return $affectedLines;
-    }
-
+    }*/
+    
+// vérificaion de l'identifiant et du mot de passe pour la connexion à l'espace administration
     public function getUser($userId, $pwd) {
 
         $db = Connection::getInstance();
         $users = $db->prepare('SELECT identifiant, mdp FROM users WHERE identifiant = ? AND mdp = ? ');
-        $users->execute(array($userId, $pwd));
+        $users->execute(array($userId, sha1($pwd)));
         $userRow = $users->fetch(PDO::FETCH_ASSOC);
         if ($users->rowCount() > 0) {
   
@@ -31,6 +32,7 @@ class UsersManager {
         }
     }
     
+   // deconnexion de la zone administration 
     public function deconnexion() {
         
         $_SESSION = array();

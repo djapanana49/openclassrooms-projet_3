@@ -2,6 +2,8 @@
 
 class CommentsManager {
 
+    //selection des commentaires pour un article donné
+
     public function getComments($postId) {
         $db = Connection::getInstance();
         $comments = $db->prepare('SELECT comment_id, author, comment,signaled,DATE_FORMAT(comment_date, \'%d/%m/%Y &agrave %H:%i\') AS comment_date_fr FROM comments WHERE posts_id = ? ORDER BY comment_date DESC');
@@ -9,8 +11,7 @@ class CommentsManager {
         return $comments;
     }
 
-    // Nouvelle fonction qui nous permet d'�viter de r�p�ter du code
-
+    //Insertion d'un nouveau commentaire
 
     public function postComment($postId, $author, $comment) {
         $db = Connection::getInstance();
@@ -18,6 +19,8 @@ class CommentsManager {
         $affectedLines = $comments->execute(array($postId, $author, $comment));
         return $affectedLines;
     }
+
+    // signalement d'un commentaire
 
     public function alertComment() {
         $commentId = $_GET['comment_id'];
@@ -27,12 +30,16 @@ class CommentsManager {
         return $affectedLines;
     }
 
+    // afficher les commentaires signalés
+
     public function showSignalComment() {
 
         $db = Connection::getInstance();
         $signals = $db->query('SELECT * FROM comments WHERE signaled = 1');
         return $signals;
     }
+
+    // supprimer un commentaire signalé
 
     public function deleteComment($commentId) {
 
@@ -43,6 +50,8 @@ class CommentsManager {
         return $affectedLines;
     }
 
+    // valider un commentaire signalé
+
     public function validateComment($commentId) {
 
 
@@ -50,6 +59,26 @@ class CommentsManager {
         $valid = $db->prepare('UPDATE comments set signaled=0 where comment_id=?');
         $affectedLines = $valid->execute(array($commentId));
         return $affectedLines;
+    }
+
+    /* Compte des commentaires */
+
+    function countComments() {
+
+        $db = Connection::getInstance();
+        $count = $db->query('SELECT COUNT(*) FROM comments');
+        $count2 = $count->fetchColumn();
+        return $count2;
+    }
+
+    /* Compte des commentaires signalés */
+
+    function countSigComments() {
+
+        $db = Connection::getInstance();
+        $count = $db->query('SELECT COUNT(*) FROM comments WHERE signaled=1');
+        $count2 = $count->fetchColumn();
+        return $count2;
     }
 
 }

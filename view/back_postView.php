@@ -1,3 +1,4 @@
+<!--Modification d'un article-->
 <div class="col-lg-8 col-md-10 mx-auto">
     
     <h2>Modifier un article</h2>

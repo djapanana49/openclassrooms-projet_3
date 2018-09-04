@@ -2,31 +2,35 @@
 
 class PostsManager {
 
+    // On récupère les 10 derniers billets
+    
     function getPosts() {
-
         $db = Connection::getInstance();
-
-        // On récupère les 5 derniers billets
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts ORDER BY creation_date ASC LIMIT 0, 10');
         return $req;
     }
 
+    // On récupère un article particulier grâce à son id
+    
     function getPost($postId) {
         $db = Connection::getInstance();
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
-
         return $post;
     }
 
+    // Création d'un article
+    
     function addPosts($title, $postauthor, $content) {
         $db = Connection::getInstance();
         $req = $db->prepare('INSERT INTO posts (title,post_author,content,creation_date) VALUES(?, ?, ?, NOW())');
         $affectedLines = $req->execute(array($title, $postauthor, $content));
         return $affectedLines;
     }
-
+    
+    // Suppression d'un article
+    
     function deletePosts($postId) {
 
         $db = Connection::getInstance();
@@ -35,6 +39,8 @@ class PostsManager {
         return $affectedLines;
     }
 
+    // Afficher un article dans l'espace administration
+    
     function editPosts($postId) {
 
         $db = Connection::getInstance();
@@ -43,6 +49,8 @@ class PostsManager {
         return $affectedLines;
     }
 
+    // Modification d'un article 
+    
     function changePosts($postId, $title, $content) {
 
         $db = Connection::getInstance();
@@ -51,11 +59,13 @@ class PostsManager {
         return $affectedLines;
     }
     
+    // compte du nombre des articles
+    
     function countPosts(){
         
         $db = Connection::getInstance();
         $count=$db->query('SELECT COUNT(*) FROM posts');
-        $count2=$count->fetch();
+        $count2=$count->fetchColumn();
         return $count2;
         
     }
