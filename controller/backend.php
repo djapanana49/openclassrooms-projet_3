@@ -104,7 +104,7 @@ function getUser($userId, $pwd) {
     $userManager = new UsersManager();
     $user = $userManager->getUser($userId, $pwd);
     if ($user == true) {
-        require('view/backendView.php');
+        header('Location:admin.php?action=backendView');
     } else {
         header('Location:index.php?action=connectView');
     }
@@ -119,7 +119,7 @@ function deletePosts($postid) {
     if ($suppr === false) {
         throw new Exception('Aucun commentaire supprimé');
     } else {
-        require('view/backendView.php');
+        header('Location:admin.php?action=backendView');
     }
 }
 

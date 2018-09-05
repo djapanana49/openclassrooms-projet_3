@@ -87,7 +87,7 @@ try {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
                 $sous_titre = "Vue d'ensemble";
-                listPosts();
+                
                 break;
             case 'deletePosts':
 
