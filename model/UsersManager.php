@@ -18,21 +18,31 @@ class UsersManager {
     
 // vérificaion de l'identifiant et du mot de passe pour la connexion à l'espace administration
     public function getUser($userId, $pwd) {
-
+        
         $db = Connection::getInstance();
-        $users = $db->prepare('SELECT identifiant, mdp FROM users WHERE identifiant = ? AND mdp = ? ');
-        $users->execute(array($userId, sha1($pwd)));
-        $userRow = $users->fetch(PDO::FETCH_ASSOC);
-        if ($users->rowCount() > 0) {
-  
-            $_SESSION['user_session'] = $userRow['identifiant'];
-            return true;
+        $users = $db->prepare('SELECT identifiant, mdp FROM users WHERE identifiant = ? ');
+        $users->execute(array($userId));
+        $resultat = $users->fetch(PDO::FETCH_ASSOC);
+        // Comparaison du pass envoyé via le formulaire avec la base
+
+        $isPasswordCorrect = password_verify($pwd, $resultat['mdp']);
+      
+        if (!$resultat) {
+
+            echo 'Mauvais identifiant ou mot de passe !';
         } else {
-            return false;
+            if ($isPasswordCorrect) {
+
+                $_SESSION['user_session'] = $resultat['identifiant'];
+                return true;
+            } else {
+                echo 'Mauvais identifiant ou mot de passe !';
+                return false;
+            }
         }
     }
-    
-   // deconnexion de la zone administration 
+
+    // deconnexion de la zone administration 
     public function deconnexion() {
         
         $_SESSION = array();
