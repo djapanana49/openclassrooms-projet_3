@@ -59,8 +59,9 @@ function addPostsView() {
 /* Accès à la page d'accueil de l'administration */
 
 function backendView() {
-
-    require('view/backendView.php');
+$postManager = new PostsManager(); // Création d'un objet
+$posts = $postManager->getPosts_3(); // Appel d'une fonction de cet objet
+require('view/backendView.php');
 }
 
 /* Modification des articles */
@@ -69,10 +70,12 @@ function changePosts($postId, $title, $content) {
 
     $postManager = new PostsManager();
     $affectedLines = $postManager->changePosts($postId, $title, $content);
+    header('Location:admin.php?action=backendView');
 
     if ($affectedLines === false) {
         throw new Exception('Impossible de modifier l\'article !');
     }
+    
 }
 
 /* Affichage des articles */
@@ -101,7 +104,6 @@ function getUser($userId, $pwd) {
     $userManager = new UsersManager();
     $user = $userManager->getUser($userId, $pwd);
     if ($user == true) {
-
         require('view/backendView.php');
     } else {
         header('Location:index.php?action=connectView');
@@ -162,4 +164,11 @@ function countSigComments() {
     $commentManager = new CommentsManager(); // Création d'un objet
     $count = $commentManager->countSigComments(); // Appel d'une fonction de cet objet
     return $count;
+}
+
+function listPosts()
+{
+    $postManager = new PostsManager(); // Création d'un objet
+    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+
 }

@@ -9,6 +9,14 @@ class PostsManager {
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts ORDER BY creation_date ASC LIMIT 0, 10');
         return $req;
     }
+    
+     // On récupère les 3 derniers billets
+    
+    function getPosts_3() {
+        $db = Connection::getInstance();
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y &agrave %H:%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 3');
+        return $req;
+    }
 
     // On récupère un article particulier grâce à son id
     

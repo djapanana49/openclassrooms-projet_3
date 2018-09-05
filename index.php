@@ -9,7 +9,7 @@ try {
     if (isset($_GET['action'])) {
         switch($_GET['action']){
             
-            case "listPosts": echo "liste des articles"; listPosts();break;
+            case "listPosts": listPosts();break;
             case 'post':
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();

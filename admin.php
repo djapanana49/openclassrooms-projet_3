@@ -64,6 +64,7 @@ try {
                     if (!empty($_POST['title']) && !empty($_POST['content'])) {
 
                         changePosts($_GET['id'], $_POST['title'], $_POST['content']);
+                        $sous_titre = "Gestion des articles";
                     }
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
@@ -81,10 +82,12 @@ try {
             case 'getUser':
                 if (isset($_POST) && !empty($_POST['id']) && !empty($_POST['pwd'])) {
                     getUser($_POST['id'], $_POST['pwd']);
+                    
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
                 $sous_titre = "Vue d'ensemble";
+                listPosts();
                 break;
             case 'deletePosts':
 
@@ -104,14 +107,17 @@ try {
             case 'deconnexion':
                 deconnexion();
                 break;
+            case "listPosts": listPosts();break;
 
             default: backendView();
+                listPosts();
 
                 break;
         }
     } else {
 
         backendView();
+        listPosts();
     }
 
     $content = ob_get_clean();
