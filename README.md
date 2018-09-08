@@ -7,7 +7,12 @@ Projet 3 Openclassrooms
 ### Langage
 PHP avec la méthode MVC
 ### URL
+## URL front
 http://www.projets-opc-nana.com/
+## URL backoffice
+http://http://www.projets-opc-nana.com/index.php?action=connectView
+identifiant: mentor
+mot de passe: projet3
 ### Auteur
 Djapa Nana
 
