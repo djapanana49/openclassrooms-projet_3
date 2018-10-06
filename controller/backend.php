@@ -3,7 +3,7 @@
 /* Affichage des commentaires signalés */
 
 function showSignalComments() {
-    CheckSession::userIsConnected();//vérification de la session
+    CheckSession::userIsConnected(); //vérification de la session
     $commentManager = new CommentsManager();
     $signals = $commentManager->showSignalComment();
     if ($signals == false) {
@@ -35,8 +35,13 @@ function validateComment($commentId) {
     }
 }
 
-/* Ajouter des articles */
-
+/**
+ * Ajouter un article
+ * @param string $title
+ * @param string $postauthor
+ * @param string $content
+ * @throws Exception
+ */
 function addPosts($title, $postauthor, $content) {
     CheckSession::userIsConnected();
     $postManager = new PostsManager();
@@ -65,8 +70,13 @@ function backendView() {
     require('view/backendView.php');
 }
 
-/* Modification des articles */
-
+/**
+ * Modification des articles 
+ * @param int $postId
+ * @param string $title
+ * @param string $content
+ * @throws Exception
+ */
 function changePosts($postId, $title, $content) {
     CheckSession::userIsConnected();
     $postManager = new PostsManager();
@@ -88,8 +98,10 @@ function editPosts() {
     require('view/editPostsView.php');
 }
 
-/* Accès à la page de modification des articles */
-
+/**
+ * Accès à la page de modification des articles
+ * @param int $postsId
+ */
 function changePostsView($postsId) {
     CheckSession::userIsConnected();
     $postManager = new PostsManager(); // Création d'un objet
@@ -97,26 +109,30 @@ function changePostsView($postsId) {
     require('view/back_postView.php');
 }
 
-/* Vérification des identifiants de connexion */
-
+/**
+ * Vérification des identifiants de connexion
+ * @param int $userId
+ * @param string $pwd
+ */
 function doConnexion($userId, $pwd) {
 
     $userManager = new UsersManager();
     $userIsConnected = $userManager->getUser($userId, $pwd);
-    if($userIsConnected==false){
-        
+    if ($userIsConnected == false) {
+
         header('Location:index.php?action=connectView&errorMessage=identifiant ou mot de passe erroné');
         exit;
-    }else{
-        
+    } else {
+
         header('Location:admin.php?action=backendView');
         exit;
     }
-   
 }
 
-/* Suppression d'un article */
-
+/**
+ * Suppression d'un article 
+ * @param int $postId
+ */
 function deletePosts($postid) {
     CheckSession::userIsConnected();
     $postManager = new PostsManager();
@@ -143,20 +159,22 @@ function post() {
 function deconnexion() {
 
     $userManager = new UsersManager();
-    $user = $userManager->deconnexion();
+    $userManager->deconnexion();
 }
 
 /* Compte des articles */
+
 function countPosts() {
-    
+
     $postManager = new PostsManager(); // Création d'un objet
     $count = $postManager->countPosts(); // Appel d'une fonction de cet objet
     return $count;
 }
+
 /* Compte des commentaires */
 
 function countComments() {
-    
+
     $commentManager = new CommentsManager(); // Création d'un objet
     $count = $commentManager->countComments(); // Appel d'une fonction de cet objet
     return $count;
@@ -165,7 +183,7 @@ function countComments() {
 /* Compte des commentaires signalés */
 
 function countSigComments() {
-    
+
     $commentManager = new CommentsManager(); // Création d'un objet
     $count = $commentManager->countSigComments(); // Appel d'une fonction de cet objet
     return $count;
@@ -174,5 +192,5 @@ function countSigComments() {
 function listPosts() {
     CheckSession::userIsConnected();
     $postManager = new PostsManager(); // Création d'un objet
-    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+    $postManager->getPosts(); // Appel d'une fonction de cet objet
 }
