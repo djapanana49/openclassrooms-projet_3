@@ -81,13 +81,14 @@ try {
 
             case 'getUser':
                 if (isset($_POST) && !empty($_POST['id']) && !empty($_POST['pwd'])) {
-                    getUser($_POST['id'], $_POST['pwd']);
-                    
+
+                    doConnexion($_POST['id'], $_POST['pwd']);
                 } else {
-                    throw new Exception('Tous les champs ne sont pas remplis !');
+
+                    CheckSession::userIsConnected();
                 }
                 $sous_titre = "Vue d'ensemble";
-                
+
                 break;
             case 'deletePosts':
 
@@ -107,15 +108,16 @@ try {
             case 'deconnexion':
                 deconnexion();
                 break;
-            case "listPosts": listPosts();break;
+            case "listPosts": listPosts();
+                break;
 
-            default: backendView();
+            default:
+                backendView();
                 listPosts();
 
                 break;
         }
     } else {
-
         backendView();
         listPosts();
     }

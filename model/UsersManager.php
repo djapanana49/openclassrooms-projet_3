@@ -27,17 +27,18 @@ class UsersManager {
         // Comparaison du mdp envoyé via le formulaire avec la base
 
         $isPasswordCorrect = password_verify($pwd, $resultat['mdp']);
-
+        
         if (!$resultat) {
 
-            echo 'Mauvais identifiant ou mot de passe !';
+           return false;
         } else {
             if ($isPasswordCorrect) {
-
+                
                 $_SESSION['user_session'] = $resultat['identifiant'];
+               
                 return true;
             } else {
-                echo 'Mauvais identifiant ou mot de passe !';
+               
                 return false;
             }
         }

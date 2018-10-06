@@ -10,7 +10,7 @@
             <div class="row">
 
                 <?= htmlspecialchars_decode($post['content']); ?>
-                </p>
+                
 
             </div>
         </div>

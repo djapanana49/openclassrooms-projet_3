@@ -52,7 +52,10 @@ function alertComment()
 
 function connectView(){
     
+    
+    
     require('view/connectView.php');
+   
 }
 
 function page_404(){

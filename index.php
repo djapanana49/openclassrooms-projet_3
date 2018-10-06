@@ -37,7 +37,6 @@ try {
             break;
             
             case 'connectView':
-                
                 connectView();break;
             case 'page_404':
                

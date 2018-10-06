@@ -21,7 +21,7 @@
             <input class="btn btn-primary" type="submit" value="valider"/>
 
         </div>
-       
+        <p><?php if(isset($_GET['errorMessage'])) echo $_GET['errorMessage'];?></p>
     </form>
     
 </div>
